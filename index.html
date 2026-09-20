@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>I Miss You Thishiii 💕</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Patrick Hand",cursive;
+    color:#603f38;
+    background:linear-gradient(135deg,#fff0e8,#ffd8c9,#ffe9df);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Floating emojis */
+.emoji{
+    position:fixed;
+    pointer-events:none;
+    z-index:1;
+    animation:float 8s linear infinite;
+    opacity:.7;
+    font-size:24px;
+}
+
+.e1{left:8%;animation-delay:0s}
+.e2{left:28%;animation-delay:2s}
+.e3{left:50%;animation-delay:4s}
+.e4{left:72%;animation-delay:1s}
+.e5{left:90%;animation-delay:3s}
+
+@keyframes float{
+    from{
+        transform:translateY(110vh) rotate(0deg);
+        opacity:0;
+    }
+    15%{opacity:.7}
+    85%{opacity:.7}
+    to{
+        transform:translateY(-15vh) rotate(180deg);
+        opacity:0;
+    }
+}
+
+/* Music button */
+#musicBtn{
+    position:fixed;
+    top:18px;
+    right:18px;
+    z-index:100;
+    border:0;
+    border-radius:30px;
+    padding:11px 18px;
+    background:rgba(255,255,255,.8);
+    color:#754b43;
+    font-family:"Patrick Hand",cursive;
+    font-size:17px;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(100,60,50,.15);
+}
+
+/* Opening */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+}
+
+.hero-card{
+    width:min(850px,94%);
+    padding:55px 25px;
+    border-radius:35px;
+    background:rgba(255,255,255,.48);
+    backdrop-filter:blur(12px);
+    box-shadow:0 20px 60px rgba(100,60,50,.12);
+}
+
+.decor{
+    font-size:25px;
+    margin-bottom:18px;
+}
+
+h1{
+    font-family:"Caveat",cursive;
+    font-size:clamp(60px,12vw,110px);
+    line-height:.9;
+    color:#92554a;
+}
+
+.hero-text{
+    margin:25px 0;
+    font-size:22px;
+}
+
+.tap{
+    border:0;
+    border-radius:30px;
+    padding:14px 25px;
+    background:#b96d5e;
+    color:white;
+    font-family:"Patrick Hand",cursive;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* Sections */
+section.content{
+    width:min(900px,92%);
+    margin:auto;
+    padding:75px 0;
+}
+
+.title{
+    text-align:center;
+    font-family:"Caveat",cursive;
+    color:#92554a;
+    font-size:clamp(45px,9vw,75px);
+    margin-bottom:35px;
+}
+
+.card{
+    background:rgba(255,255,255,.55);
+    border-radius:28px;
+    padding:28px;
+    margin:20px 0;
+    box-shadow:0 12px 40px rgba(100,60,50,.1);
+    backdrop-filter:blur(10px);
+}
+
+.card h2{
+    font-family:"Caveat",cursive;
+    color:#9b5a4d;
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:21px;
+    line-height:1.65;
+}
+
+/* Missing */
+.missing{
+    display:grid;
+    gap:15px;
+}
+
+.missing div{
+    background:rgba(255,255,255,.55);
+    border-radius:20px;
+    padding:18px 22px;
+    font-size:21px;
+}
+
+/* Letter */
+.letter{
+    background:rgba(255,250,247,.7);
+    border-radius:30px;
+    padding:32px 27px;
+    box-shadow:0 15px 50px rgba(100,60,50,.12);
+}
+
+.letter p{
+    font-size:21px;
+    line-height:1.75;
+    margin-bottom:20px;
+}
+
+.signature{
+    text-align:right;
+    font-family:"Caveat",cursive;
+    font-size:35px;
+    color:#92554a;
+}
+
+footer{
+    text-align:center;
+    padding:60px 20px 100px;
+    font-family:"Caveat",cursive;
+    font-size:36px;
+    color:#92554a;
+}
+
+@media(max-width:600px){
+    #musicBtn{
+        top:12px;
+        right:12px;
+        font-size:15px;
+    }
+
+    .hero-card{
+        padding:45px 18px;
+    }
+
+    .card p,
+    .missing div,
+    .letter p{
+        font-size:19px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Floating emojis -->
+
+<div class="emoji e1">💕</div>
+<div class="emoji e2">✨</div>
+<div class="emoji e3">🌷</div>
+<div class="emoji e4">🦋</div>
+<div class="emoji e5">♡</div>
+
+<!-- ==================================================
+     SONG
+     Keep "The Life Of Ram.mp3" in the same folder
+     ================================================== -->
+
+<audio id="song" preload="metadata" playsinline>
+    <source src="The Life Of Ram.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" type="button">🎵 Play Music</button>
+
+<!-- ==================================================
+     OPENING
+     ================================================== -->
+
+<section class="hero">
+
+```
+<div class="hero-card">
+
+    <div class="decor">
+        🌷 ✨ 💕 🦋 ♡ ✨ 💕 🌷
+    </div>
+
+    <h1>
+        I MISS YOUU<br>
+        THISHIII 💕
+    </h1>
+
+    <p class="hero-text">
+        Some people become memories...<br>
+        and some memories become a part of us. 🥺❤️
+    </p>
+
+    <button class="tap" id="continueBtn" type="button">
+        Tap to continue 🥺💗
+    </button>
+
+</div>
+```
+
+</section>
+
+<!-- ==================================================
+     MEMORIES
+     ================================================== -->
+
+<section class="content" id="memories">
+
+```
+<h2 class="title">Our Little Memories 💕</h2>
+
+<div class="card">
+    <h2>🌷 The First Time We Met</h2>
+    <p>
+        10th standard mudinjadhukku apram Arya veetla
+        first time meet pannom... cricket vilayadi,
+        tea kudichu irundha andha simple moment,
+        ippo nenacha kooda romba special-ah iruku. 🥹
+    </p>
+</div>
+
+<div class="card">
+    <h2>💬 Random Talks</h2>
+    <p>
+        Random talks, caring, gossips, sirippu...
+        edhuvum planned illa.
+        Aana andha ordinary conversations dhaan
+        ippo romba special memories-ah maariduchu. ❤️
+    </p>
+</div>
+
+<div class="card">
+    <h2>☕ Our Tea Time</h2>
+    <p>
+        Oru tea vaangi rendu perum share panni kudipom...
+        romba simple-aana moment.
+        Aana ippo naa thaniya poi oru tea vaangi kudikkumbodhu,
+        andha tea time romba miss aagudhu. 🥺☕
+    </p>
+</div>
+
+<div class="card">
+    <h2>🚶 Random Walks</h2>
+    <p>
+        Tuition mudinjadhukku apram random-ah nadandhu pesina
+        andha walks... destination mukkiyam illa,
+        company dhaan mukkiyam. 🌷
+    </p>
+</div>
+
+<div class="card">
+    <h2>🎧 Songs & Video Calls</h2>
+    <p>
+        Onnaa songs kekkuradhu, video calls-la manikanakka
+        pesuradhu, rants share pannuradhu...
+        time epdi pochu-nu theriyama poidum. 🥹🎶
+    </p>
+</div>
+
+<div class="card">
+    <h2>🤫 Our Meetups</h2>
+    <p>
+        Veetukku theriyama meet pannina moments,
+        small plans, small memories...
+        ellamey namakku mattum special-ah irundhuchu. 💗
+    </p>
+</div>
+```
+
+</section>
+
+<!-- ==================================================
+     WHAT I MISS
+     ================================================== -->
+
+<section class="content">
+
+```
+<h2 class="title">What I Miss 🥺</h2>
+
+<div class="missing">
+
+    <div>💗 Un presence</div>
+    <div>☕ Namma tea times</div>
+    <div>🚶 Random walks after tuition</div>
+    <div>🎧 Onnaa songs kekkuradhu</div>
+    <div>📱 Long video calls</div>
+    <div>🫂 Un kooda irundha comfort</div>
+    <div>🌷 Mostly... having you around</div>
+
+</div>
+```
+
+</section>
+
+<!-- ==================================================
+     PERSONAL MESSAGE
+     ================================================== -->
+
+<section class="content">
+
+```
+<h2 class="title">One Little Message 💌</h2>
+
+<div class="letter">
+
+    <p>
+        <strong>Oiiii Poonakuttyy!!!! 💕</strong>
+    </p>
+
+    <p>
+        Ennanu therilaa… rombaa rombaa missing-ah iruku. 🥺
+    </p>
+
+    <p>
+        Munnadi nee enkooda irukkumbodhu, adhu romba special-ah
+        irundhuchu… like epdi naa nee enkoodavey iruppa daily —
+        random talks, caring for each other, gossips, random meetups,
+        tea time-la oru tea vaangi rendu perum share panni kudipom… ☕💕
+    </p>
+
+    <p>
+        Aana ippo anga naa thaniya poi oru tea vaangi kudikkumbodhu,
+        andha moments ellam romba miss aagudhu…
+    </p>
+
+    <p>
+        Nammaloda warm hugs-um, namakku mattum special-ah irundha
+        andha sweet little moments-um rombaa miss panren… 🫂💕
+    </p>
+
+    <p>
+        Random walks after tuition, onnaa song kekkuradhu,
+        video calls-la manikanakka pesuradhu, rants sharing,
+        veetukku theriyama meetups… 🥹
+    </p>
+
+    <p>
+        Last Diwali-ya unkooda celebrate pannadhu, nee un aasai
+        vaarthaigalaala ennoda moments-ah kootinadhu,
+        enna top priority-ah treat pannadhu…
+        ipovum naan un top-la dhaan irukken-nu namburen. 🫂❤️
+    </p>
+
+    <p>
+        Unnoda comfort person-ah irundha andha moments ellameyyy
+        rombaa miss panren. Naa ennala vaarthaigalaala sollave mudila…
+        It feels like something I need in my life every day —
+        from you, madam jiii… 🥺💗
+    </p>
+
+    <p>
+        Ippo enakku time travel panna chance kidaichaa,
+        naan andha days-ku thirumbi poven…
+        and unna innum nallaa paathukuven.
+        Munnadi nadandha mistakes-laam thirumba nadakkaama
+        irukka mudinja alavukku muyarchi seiven, mahh… 🫶
+    </p>
+
+    <p>
+        Ordinary-ah irundha moments-laam,
+        ippo enakku evlo meaning irukku-nu dhaan puriyudhu… ❤️‍🩹
+    </p>
+
+    <p>
+        <strong>MISSS YOUUU SOO MUCHH 🫀😫</strong>
+    </p>
+
+    <p>
+        Andha memories ellamey enakku romba precious,
+        Poonakuttyy. 💕
+    </p>
+
+    <div class="signature">
+        Always with the memories 🌷
+    </div>
+
+</div>
+```
+
+</section>
+
+<footer>
+    I miss the moments...<br>
+    I miss the memories...<br>
+    I miss you. 💕
+</footer>
+
+<script>
+const START_TIME = 120;
+
+const song = document.getElementById("song");
+const musicBtn = document.getElementById("musicBtn");
+const continueBtn = document.getElementById("continueBtn");
+
+function setMusicButton(text) {
+  if (musicBtn) musicBtn.textContent = text;
+}
+
+function setSongStartTime() {
+  if (song && Number.isFinite(song.duration) && song.duration > START_TIME) {
+    try { song.currentTime = START_TIME; } catch (e) {}
+  }
+}
+
+function playSong() {
+  if (!song) return Promise.reject(new Error("Audio element missing"));
+  setSongStartTime();
+  return song.play().then(() => {
+    setMusicButton("🎵 Music: ON");
+  }).catch((error) => {
+    console.log("Audio playback:", error);
+    setMusicButton("🎵 Tap to Play");
+    throw error;
+  });
+}
+
+if (song) {
+  song.addEventListener("loadedmetadata", setSongStartTime);
+  song.addEventListener("canplay", () => {
+    if (song.currentTime < 1) setSongStartTime();
+  });
+  song.addEventListener("ended", () => setMusicButton("🎵 Play Music"));
+  song.addEventListener("error", () => setMusicButton("🎵 Audio unavailable"));
+}
+
+if (musicBtn) {
+  musicBtn.addEventListener("click", () => {
+    if (song && !song.paused) {
+      song.pause();
+      setMusicButton("🎵 Play Music");
+    } else {
+      playSong().catch(() => {});
+    }
+  });
+}
+
+if (continueBtn) {
+  continueBtn.addEventListener("click", () => {
+    const memories = document.getElementById("memories");
+    if (memories) {
+      memories.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    playSong().catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>
